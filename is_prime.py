@@ -1,4 +1,6 @@
 def is_prime(n):
+    if (n<2):
+        return(False)
     d=2
     while(d<n):
         if (n%d==0):
