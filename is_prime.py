@@ -7,10 +7,7 @@ def is_prime(n):
         d = d+1
     if (d==n):
         return (True)
-        
-def main():
-    n = int(input('> '))
-    print(is_prime(n))
 
 if __name__ == "__main__":
-    main()
+    n = int(input('> '))
+    print(is_prime(n))
