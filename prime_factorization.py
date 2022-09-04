@@ -13,9 +13,6 @@ def prime_factorization(n):
         numList.append(n)
     return(numList)
         
-def main():
+if __name__ == "__main__":
     n = int(input('> '))
     print(prime_factorization(n))
-
-if __name__ == "__main__":
-    main()
