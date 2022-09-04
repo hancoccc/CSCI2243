@@ -17,13 +17,10 @@ def nth_prime(n, primeList):
             x=x+2
     return primeList
     
-def main():
+if __name__ == "__main__":
     n = int(input('> '))
     primeList=[2]
     print(nth_prime(n, primeList))
-
-if __name__ == "__main__":
-    main()
     
     
     
