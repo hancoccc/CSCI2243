@@ -7,8 +7,8 @@ def prime_factorization(n):
             numList.append(d)
             x = x/d
         d = d+1
-    if (len(numList) == 0):
-        numList.append(n)
+        if (len(numList) == 0):
+            numList.append(n)
     return(numList)
         
 def main():
