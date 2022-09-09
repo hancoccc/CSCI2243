@@ -4,13 +4,13 @@ def prime_factorization(n):
     numList = []
     if (n<2):
         return(numList)
-    while(d<n):
+    while(d<=n):
         while (x%d==0):
             numList.append(d)
             x = x/d
         d = d+1
-    if (len(numList) == 0):
-        numList.append(n)
+    #if (len(numList) == 0):
+        #numList.append(n)
     return(numList)
         
 if __name__ == "__main__":
