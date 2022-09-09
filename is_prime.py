@@ -9,5 +9,6 @@ def is_prime(n):
         return (True)
 
 if __name__ == "__main__":
-    n = int(input('> '))
-    print(is_prime(n))
+    while True:
+        n = int(input('> '))
+        print(is_prime(n))
