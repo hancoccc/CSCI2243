@@ -14,5 +14,6 @@ def prime_factorization(n):
     return(numList)
         
 if __name__ == "__main__":
-    n = int(input('> '))
-    print(prime_factorization(n))
+    while True:
+        n = int(input('> '))
+        print(prime_factorization(n))
