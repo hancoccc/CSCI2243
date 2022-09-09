@@ -1,4 +1,5 @@
-def nth_prime(n, primeList):
+def nth_prime(n):
+    primeList=[2]
     d=1
     x=3
     while (d<n):
@@ -15,12 +16,11 @@ def nth_prime(n, primeList):
             x=x+2
         else:
             x=x+2
-    return primeList
+    return (primeList[n-1])
     
 if __name__ == "__main__":
-    n = int(input('> '))
-    primeList=[2]
-    print(nth_prime(n, primeList))
-    
+    while True:
+        n = int(input('> '))
+        print(nth_prime(n))
     
     
