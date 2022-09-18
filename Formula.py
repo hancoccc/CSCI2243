@@ -54,10 +54,7 @@ class Implies(Formula):
     def variables(self):
         return self.first.variables().union(self.second.variables())
     def evaluate(self,values):
-        if (self.first.evaluate(values)==True and self.second.evaluate(values)==False):
-            return False
-        else:
-            return True
+        return self.second.evaluate(values) or not(self.first.evaluate(values))
         
 
 class Not(Formula):
@@ -79,7 +76,8 @@ class Iff(Formula):
     def variables(self):
         return self.first.variables().union(self.second.variables())
     def evaluate(self,values):
-        return self.first.evaluate(values) == self.second.evaluate(values)
+        #return self.first.evaluate(values) == self.second.evaluate(values)
+        return (self.first.evaluate(values) and (self.first.evaluate(values))) or not (self.first.evaluate(values) and (self.first.evaluate(values)))
 
 # listAllPossibleValues takes a list of variable names, it returns a list of pairs,
 #   giving all possible combinations of True/False values for the given variables
@@ -116,51 +114,38 @@ def truthTable(formula):
 myformula=And(Implies(Variable('p'),Variable('q')),
               Implies(Variable('p'),Variable('r')))
 
-alp = [truthTable(myformula)]
-#print(alp)
 print( truthTable(myformula) )
 
 # Uncomment the following lines and provide the code to compute them
 
 def isTautology(formula):
-    n=1
-    while n<9:
-        if(formula[0][n][-1]) == True:
-            continue
-        else:
+    for i in truthValues(formula):
+        if i == False:
             return False
-        n=n+1
-    return True
 
-print(isTautology(alp))
+print(isTautology(myformula))
 
     
 def isSatisfiable(formula):
     trues=0
     falses=0
     n=1
-    while n<9:
-        if(formula[0][n][-1]) == True:
+    for i in truthValues(formula):
+        if i == True:
             trues=1
             if falses == 1:
                 return True
-        if(formula[0][n][-1]) == False:
+        if i == False:
             falses=1
             if trues == 1:
                 return True
-        n=n+1
     return False
     
-print(isSatisfiable(alp))
+print(isSatisfiable(myformula))
 
 def isContradiction(formula):
-    n=1
-    while n<9:
-        if(formula[0][n][-1]) == False:
-            continue
-        else:
-            return True
-        n=n+1
-    return False
+    for i in truthValues(formula):
+        if i == True:
+            return False
 
-print(isTautology(alp))
+print(isTautology(myformula))
