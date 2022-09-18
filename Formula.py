@@ -128,6 +128,8 @@ print(isTautology(myformula))
 
     
 def isSatisfiable(formula):
+    if isTautology(myformula):
+        return True
     trues=0
     falses=0
     n=1
@@ -141,6 +143,7 @@ def isSatisfiable(formula):
             if trues == 1:
                 return True
     return False
+#as long as one is true 
     
 print(isSatisfiable(myformula))
 
