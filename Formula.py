@@ -1,4 +1,4 @@
-#from tabulate import tabulate
+from tabulate import tabulate
 
 class Formula(object):
     pass
@@ -108,8 +108,8 @@ def truthTable(formula):
     headers = variableList+[str(formula)]
     rows = [ [v[1] for v in vals] + [formula.evaluate(dict(vals))]
              for vals in listAllPossibleValues(variableList) ]
-    #return tabulate(rows, headers=headers)
-    return rows
+    return tabulate(rows, headers=headers)
+    #return rows
 
 # DEMO – this should work once you add the missing code above
 
@@ -117,8 +117,8 @@ myformula=And(Implies(Variable('p'),Variable('q')),
               Implies(Variable('p'),Variable('r')))
 
 alp = [truthTable(myformula)]
-print(alp)
-#print( truthTable(myformula) )
+#print(alp)
+print( truthTable(myformula) )
 
 # Uncomment the following lines and provide the code to compute them
 
