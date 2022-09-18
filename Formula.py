@@ -122,6 +122,7 @@ def isTautology(formula):
     for i in truthValues(formula):
         if i == False:
             return False
+    return True
 
 print(isTautology(myformula))
 
@@ -147,5 +148,6 @@ def isContradiction(formula):
     for i in truthValues(formula):
         if i == True:
             return False
+    return False
 
 print(isTautology(myformula))
